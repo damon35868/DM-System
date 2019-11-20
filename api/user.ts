@@ -62,8 +62,24 @@ module.exports = (app:any) => {
 		const token = fullToken.slice(7);
 		JWT.verify(token, 'secret', (err:any, user:any)=> {
 			if(err) return res.status(400).json({msg:'token无效'});
-			res.status(200).json({code:200,msg:'成功',data:user});
+			User.findOne({email:user.email}).then((user:any)=>{
+				if(!user) return res.status(400).json({msg:'用户名不存在'});
+				res.json({stateCode:200,data:user});
+			});
 		});
+		
+		
 	});
+	
+	router.post('/edituser',passport.authenticate('jwt', {session: false}),(req:any,res:any):void=>{
+		const user_name = req.body.user_name ? req.body.user_name : null;
+		const title = req.body.title ? req.body.title : null;
+		if(!user_name || !title) return res.status(400).json({msg:'参数不能为空'});
+		User.updateOne({_id:req.body.id},{ $set: { user_name:req.body.user_name,title:req.body.title }}).then((state:any)=>{
+			if(!state) return res.status(400).json({msg:'编辑个人资料失败'});
+			res.json({msg:'编辑个人资料成功'});
+		}).catch((erro:any)=>console.log(erro));
+	});
+	
 	app.use('/api',router);
 };

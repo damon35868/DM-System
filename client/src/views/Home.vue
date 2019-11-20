@@ -79,6 +79,7 @@
 			return {
 				dialogFormVisible:false,
 				userForm:{
+					id:'',
 					user_name:'',
 					title:''
 				}
@@ -105,6 +106,7 @@
 						break;
 					case 'editUser':
 						this.dialogFormVisible = true;
+						this.userForm.id = this.user._id;
 						this.userForm.user_name = this.user.user_name;
 						this.userForm.title = this.user.title;
 						break;
@@ -115,7 +117,12 @@
 				this.$router.push('/login');
 			},
 			saveUser(){
-				console.log(1111);
+				this.$http.post('/api/edituser',this.userForm).then(res=>{
+					this.getUser();
+					this.dialogFormVisible = false;
+				}).catch(erro=>{
+					this.$message.error(erro.response.data.msg);
+				});
 			}
 		}
 	};
