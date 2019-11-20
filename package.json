@@ -1,0 +1,29 @@
+{
+  "name": "node_typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serve.ts",
+  "scripts": {
+    "serve": "nodemon serve.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.2",
+    "@types/mongodb": "^3.3.10",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.10",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.5.31"
+  }
+}
