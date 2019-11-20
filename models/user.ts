@@ -16,6 +16,7 @@
 		required: true
 	},
 	avatar:String,
+	title:String,
 	createDate:{
 		type:Date,
 		default: Date.now

@@ -48,7 +48,7 @@ module.exports = (app:any) => {
 			bcrypt.compare(password, user.password).then((isUser:any)=>{
 				if(!isUser) return res.status(400).json({msg:'用户名或密码错误'});
 				//返回json web token
-				JWT.sign({user_name:user.user_name,id:user.id,email:user.email,avatar:user.avatar,createDate:user.createDate}, 'secret', {expiresIn: 3600}, (err:any, token:any) => {
+				JWT.sign({user_name:user.user_name,id:user.id,email:user.email,avatar:user.avatar,title:user.title,createDate:user.createDate}, 'secret', {expiresIn: 3600}, (err:any, token:any) => {
 					if(err) return res.status(400).json({msg:'token返回失败'});
 					res.status(200).json({code:200,msg:'登陆成功',token:token});
 				});

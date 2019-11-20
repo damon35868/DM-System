@@ -12,6 +12,10 @@ const routes = [
     component: Home,
 	children:[
 		{
+			path:'/',
+			component: () => import('../components/RouterHome.vue')
+		},
+		{
 			path:'/classtype',
 			component: () => import('../components/ClassType.vue')
 		},

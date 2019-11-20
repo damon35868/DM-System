@@ -3,7 +3,7 @@
 		<el-header style="text-align: right; font-size: 12px; background-color: rgb(4, 71, 105 );" class="text-white">
 			<el-row justify="end" align="middle">
 				<el-col :span="3">
-					<h2 class="font-bold text-left text-2xl">D.M管理系统</h2>
+					<router-link to="/" class="font-bold text-left text-2xl">D.M管理系统</router-link>
 				</el-col>
 				<el-col :span="21" v-if="user!==null">
 					<el-avatar class="align-middle mr-2" shape="circle" :size="40" fit="cover" :src="user.avatar"></el-avatar>
@@ -48,7 +48,7 @@
 				<el-form-item label="用户名:" label-width="120px">
 					<el-input v-model="userForm.user_name" autocomplete="off"></el-input>
 				</el-form-item>
-				<el-form-item label="title:" label-width="120px">
+				<el-form-item label="职称:" label-width="120px">
 					<el-input v-model="userForm.title" autocomplete="off"></el-input>
 				</el-form-item>
 			</el-form>
@@ -80,8 +80,7 @@
 				dialogFormVisible:false,
 				userForm:{
 					user_name:'',
-					title:'',
-					
+					title:''
 				}
 			}
 		},
@@ -107,6 +106,7 @@
 					case 'editUser':
 						this.dialogFormVisible = true;
 						this.userForm.user_name = this.user.user_name;
+						this.userForm.title = this.user.title;
 						break;
 				}
 			},
