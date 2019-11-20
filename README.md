@@ -6,4 +6,4 @@
 vue element等
 
 # 后端
-node.js express等
+node.js express mongodb等
