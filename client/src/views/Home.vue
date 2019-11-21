@@ -115,6 +115,7 @@
 			},
 			logout() {
 				localStorage.removeItem('token');
+				this.$message.error('已登出');
 				this.$router.push('/login');
 			},
 			saveUser() {
