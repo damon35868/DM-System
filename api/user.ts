@@ -15,7 +15,6 @@ module.exports = (app:any) => {
 		if(!user_name || !email || !password) return res.status(400).json({msg:'缺少参数'});
 		User.findOne({email}).then((user:any)=>{
 			if(user) return res.status(404).json('邮箱已被占用');
-			//注册逻辑
 			//头像
 			const avatar = gravatar.url(email, {s: '200', r: 'pg', d: 'mm'});
 			//加密密码

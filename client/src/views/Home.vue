@@ -14,17 +14,18 @@
 							<i class="align-middle el-icon-caret-bottom el-icon--right ml-2" style="font-size:16px;"></i>
 						</span>
 						<el-dropdown-menu slot="dropdown">
-							<el-dropdown-item  command="editUser">编辑个人信息</el-dropdown-item>
+							<el-dropdown-item command="editUser">编辑个人信息</el-dropdown-item>
 							<el-dropdown-item command="logout">登出</el-dropdown-item>
 						</el-dropdown-menu>
 					</el-dropdown>
 				</el-col>
 			</el-row>
 		</el-header>
-		
+
 		<el-container>
 			<el-aside width="200px">
-				<el-menu style="height: 100vh;" :default-openeds="['1', '3']" router>
+				<el-menu style="height: 100vh;" :default-openeds="['1', '3']" :default-active="$route.path" class="el-menu-vertical-demo"
+				 router text-color="#606060">
 					<el-submenu index="1">
 						<template slot="title"><i class="el-icon-message"></i>信息管理</template>
 						<el-menu-item-group active-text-color>
@@ -42,7 +43,7 @@
 				</el-main>
 			</el-container>
 		</el-container>
-		
+
 		<el-dialog title="修改个人资料" :visible.sync="dialogFormVisible">
 			<el-form :model="userForm">
 				<el-form-item label="用户名:" label-width="120px">
@@ -77,27 +78,27 @@
 		naem: 'home',
 		data() {
 			return {
-				dialogFormVisible:false,
-				userForm:{
-					id:'',
-					user_name:'',
-					title:''
+				dialogFormVisible: false,
+				userForm: {
+					id: '',
+					user_name: '',
+					title: ''
 				}
 			}
 		},
-		created(){
+		created() {
 			this.getUser();
 		},
-		computed:{
-			user(){
+		computed: {
+			user() {
 				return this.$store.getters.getUser;
 			}
 		},
 		methods: {
-			getUser(){
-				this.$http.get('/api/user').then(res=>{
-					this.$store.dispatch('setUser',res.data.data);
-				}).catch(erro=>console.log(erro));
+			getUser() {
+				this.$http.get('/api/user').then(res => {
+					this.$store.dispatch('setUser', res.data.data);
+				}).catch(erro => console.log(erro));
 			},
 			handleClick(command) {
 				switch (command) {
@@ -116,11 +117,11 @@
 				localStorage.removeItem('token');
 				this.$router.push('/login');
 			},
-			saveUser(){
-				this.$http.post('/api/edituser',this.userForm).then(res=>{
+			saveUser() {
+				this.$http.post('/api/edituser', this.userForm).then(res => {
 					this.getUser();
 					this.dialogFormVisible = false;
-				}).catch(erro=>{
+				}).catch(erro => {
 					this.$message.error(erro.response.data.msg);
 				});
 			}
