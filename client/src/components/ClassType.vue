@@ -36,7 +36,7 @@
 							})
 							this.$router.push('/classlist');
 						}).catch(erro=>{
-							this.$message.error('请输入class类型');
+							this.$message.error(erro.response.data.msg);
 						});
 					} else {
 						return false;

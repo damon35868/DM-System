@@ -24,7 +24,7 @@
 
 		<el-container>
 			<el-aside width="200px">
-				<el-menu style="height: 100vh;" :default-openeds="['1', '3']" :default-active="$route.path" class="el-menu-vertical-demo"
+				<el-menu style="height:calc(100vh - 60px);" :default-openeds="['1', '3']" :default-active="$route.path" class="el-menu-vertical-demo"
 				 router text-color="#606060">
 					<el-submenu index="1">
 						<template slot="title"><i class="el-icon-message"></i>信息管理</template>
