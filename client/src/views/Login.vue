@@ -89,6 +89,7 @@
 							})
 							this.$router.push('/');
 						}).catch(erro=>{
+							if(erro.response.status === 500) return this.$message.error('服务器未连接');
 							this.$message.error('请确保邮箱和密码正确')
 						});
 					}

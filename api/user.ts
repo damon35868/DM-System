@@ -14,7 +14,7 @@ module.exports = (app:any) => {
 		const password = req.body.password ? req.body.password : null;
 		if(!user_name || !email || !password) return res.status(400).json({msg:'缺少参数'});
 		User.findOne({email}).then((user:any)=>{
-			if(user) return res.status(404).json('邮箱已被占用');
+			if(user) return res.status(404).json({msg:'邮箱已被占用'});
 			//头像
 			const avatar = gravatar.url(email, {s: '200', r: 'pg', d: 'mm'});
 			//加密密码
@@ -66,8 +66,6 @@ module.exports = (app:any) => {
 				res.json({stateCode:200,data:user});
 			});
 		});
-		
-		
 	});
 	
 	router.post('/edituser',passport.authenticate('jwt', {session: false}),(req:any,res:any):void=>{
