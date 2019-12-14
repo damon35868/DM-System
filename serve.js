@@ -22,7 +22,7 @@ require("./config/passport")(passport);
 app.use(passport.initialize());
 
 
-require('./api/user.ts')(app);
-require('./api/class.ts')(app);
+require('./api/user.js')(app);
+require('./api/class.js')(app);
 
 app.listen(3000,()=> console.log('the server is running'));
