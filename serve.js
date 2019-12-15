@@ -14,13 +14,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-
-
-
 require("./config/passport")(passport);
 //passport 初始化后才能正常使用
 app.use(passport.initialize());
-
 
 require('./api/user.js')(app);
 require('./api/class.js')(app);
