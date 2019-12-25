@@ -1,8 +1,8 @@
 <template>
 	<el-container style="height: 100vh;">
 		<el-header style="text-align: right; font-size: 12px; background-color: rgb(4, 71, 105 );" class="text-white">
-			<el-row justify="end" align="middle">
-				<el-col :span="3">
+			<el-row type="flex" justify="space-between" align="middle">
+				<el-col style="text-align: left;">
 					<router-link to="/" class="font-bold text-left text-2xl">D.M System</router-link>
 				</el-col>
 				<el-col :span="21" v-if="user!==null">

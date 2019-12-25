@@ -13,7 +13,6 @@
 					<el-button @click="removeType(scope.row)" type="danger" size="small">删除</el-button>
 				</template>
 			</el-table-column>
-			</el-table-column>
 		</el-table>
 		<el-dialog title="修改class类型" :visible.sync="dialogFormVisible">
 			<el-form :model="form">
