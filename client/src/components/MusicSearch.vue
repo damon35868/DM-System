@@ -2,7 +2,7 @@
 	<div class="MusicSearch px-20 py-10 text-center">
 		<h3 class="text-center text-4xl font-bold text-green-900 pb-10">搜索你喜欢的音乐</h3>
 		<el-input placeholder="请输入歌手或歌曲名" v-model="keyword" class="input-with-select w-4/6 mx-auto" @change="handleSearch">
-			<el-select v-model="type" slot="prepend" placeholder="请选择类型">
+			<el-select v-model="type" slot="prepend" placeholder="请选择类型" @change="changeVal">
 				<el-option label="网易云音乐" value="netease"></el-option>
 				<el-option label="虾米音乐" value="xiami"></el-option>
 				<el-option label="QQ音乐" value="qq"></el-option>
@@ -66,6 +66,9 @@
 					}).catch(erro => console.log(erro));
 			},
 			handleCurrentChange(val) {
+				this.handleSearch();
+			},
+			changeVal(val){
 				this.handleSearch();
 			}
 		}
