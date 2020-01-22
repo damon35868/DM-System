@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+ 
+ 
 //database connect
 mongoose.connect('mongodb://localhost:27017/dmdata', {useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false}).then(()=>{
 	console.log('database is connected');
@@ -18,7 +19,9 @@ require("./config/passport")(passport);
 //passport 初始化后才能正常使用
 app.use(passport.initialize());
 
+//api
 require('./api/user.js')(app);
 require('./api/class.js')(app);
+require('./api/music.js')(app);
 
-app.listen(3000,()=> console.log('the server is running'));
+app.listen(8888,()=> console.log('the server is running'));

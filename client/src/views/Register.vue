@@ -109,7 +109,7 @@
 								type: 'success'
 							})
 						}).catch(erro => {
-							this.$message.error(erro.response.data);
+							this.$message.error(erro.response.data.msg);
 						});
 					}
 				});

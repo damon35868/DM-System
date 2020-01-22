@@ -24,15 +24,21 @@
 
 		<el-container>
 			<el-aside width="200px">
-				<el-menu style="height:calc(100vh - 60px);" :default-openeds="['1', '3']" :default-active="$route.path" class="el-menu-vertical-demo"
+				<el-menu style="height:calc(100vh - 60px);" :default-openeds="['1', '2']" :default-active="$route.path" class="el-menu-vertical-demo"
 				 router text-color="#606060">
 					<el-submenu index="1">
-						<template slot="title"><i class="el-icon-message"></i>信息管理</template>
+						<template slot="title"><i class="el-icon-setting"></i>信息管理</template>
 						<el-menu-item-group active-text-color>
 							<template slot="title">课程管理</template>
 							<el-menu-item index="/classtype">课程类目</el-menu-item>
 							<el-menu-item index="/classlist">课程列表</el-menu-item>
 						</el-menu-item-group>
+					</el-submenu>
+
+					<el-submenu index="2">
+						<template slot="title"><i class="el-icon-headset"></i><span>音乐管理</span></template>
+						<el-menu-item index="/musicrecommend">音乐TOP榜</el-menu-item>
+						<el-menu-item index="1-2">音乐列表</el-menu-item>
 					</el-submenu>
 				</el-menu>
 			</el-aside>
@@ -43,7 +49,6 @@
 				</el-main>
 			</el-container>
 		</el-container>
-
 		<el-dialog title="修改个人资料" :visible.sync="dialogFormVisible">
 			<el-form :model="userForm">
 				<el-form-item label="用户名:" label-width="120px">

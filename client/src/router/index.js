@@ -22,6 +22,10 @@ const routes = [
 		{
 			path:'/classlist',
 			component: () => import('../components/ClassList.vue')
+		},
+		{
+			path:'/musicrecommend',
+			component: () => import('../components/MusicRecommend.vue')
 		}
 	]
   },
