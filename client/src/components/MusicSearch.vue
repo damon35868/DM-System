@@ -9,7 +9,7 @@
 			</el-select>
 			<el-button slot="append" icon="el-icon-search" @click="handleSearch">搜索</el-button>
 		</el-input>
-		<div class="pt-16" v-if="musicList !== null">
+		<div class="pt-16" v-if="musicList !== null && musicList.length > 0">
 			<h4 class="text-left font-bold text-green-900 pb-8 ">搜索结果共：{{total}} 条数据</h4>
 			<el-table class="px-10" :data="musicList" align="center" style="width: 100%">
 				<el-table-column align="center" label="专辑封面" width="250px">
@@ -40,6 +40,7 @@
 			 layout="prev, pager, next, jumper" :total="total">
 			</el-pagination>
 		</div>
+		<p class="pt-8 text-red-700 font-bold" v-if="musicList instanceof Array && musicList.length == 0">抱歉，找不到任何内容！</p>
 	</div>
 </template>
 
