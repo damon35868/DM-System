@@ -38,7 +38,7 @@
 					<el-submenu index="2">
 						<template slot="title"><i class="el-icon-headset"></i><span>音乐管理</span></template>
 						<el-menu-item index="/musicrecommend">音乐TOP榜</el-menu-item>
-						<el-menu-item index="1-2">音乐列表</el-menu-item>
+						<el-menu-item index="/musicsearch">音乐搜索</el-menu-item>
 					</el-submenu>
 				</el-menu>
 			</el-aside>

@@ -26,6 +26,10 @@ const routes = [
 		{
 			path:'/musicrecommend',
 			component: () => import('../components/MusicRecommend.vue')
+		},
+		{
+			path:'/musicsearch',
+			component: () => import('../components/MusicSearch.vue')
 		}
 	]
   },
