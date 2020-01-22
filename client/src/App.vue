@@ -5,5 +5,7 @@
 </template>
 
 <style>
-
+	html,body{
+		font-family: 'ZCOOL KuaiLe', cursive;
+	}
 </style>

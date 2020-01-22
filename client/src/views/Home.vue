@@ -3,14 +3,14 @@
 		<el-header style="text-align: right; font-size: 12px; background-color: rgb(4, 71, 105 );" class="text-white">
 			<el-row type="flex" justify="space-between" align="middle">
 				<el-col style="text-align: left;">
-					<router-link to="/" class="font-bold text-left text-2xl">D.M System</router-link>
+					<router-link to="/" class="logo font-bold text-left text-2xl">D.M System</router-link>
 				</el-col>
 				<el-col :span="21" v-if="user!==null">
 					<el-avatar class="align-middle mr-2" shape="circle" :size="40" fit="cover" :src="user.avatar"></el-avatar>
 					<!-- <img :src="user.avatar" class="w-10 h-10 rounded-full inline-block mr-2"> -->
 					<el-dropdown class="text-white" @command="handleClick">
 						<span class="align-middle">
-							<span class="align-middle font-bold">{{user.user_name}}</span>
+							<span class="align-middle font-bold userName">{{user.user_name}}</span>
 							<i class="align-middle el-icon-caret-bottom el-icon--right ml-2" style="font-size:16px;"></i>
 						</span>
 						<el-dropdown-menu slot="dropdown">
@@ -75,6 +75,9 @@
 
 	.el-aside {
 		color: #333;
+	}
+	.logo,.userName{
+		font-family: 'Cookie', cursive;
 	}
 </style>
 
