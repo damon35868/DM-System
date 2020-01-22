@@ -36,9 +36,8 @@
 				</el-table-column>
 			</el-table>
 
-			<el-pagination class="pt-10"
-			@current-change="handleCurrentChange"
-			 :current-page.sync="currentPage" :page-size="30" layout="prev, pager, next, jumper" :total="total">
+			<el-pagination class="pt-10" @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="30"
+			 layout="prev, pager, next, jumper" :total="total">
 			</el-pagination>
 		</div>
 	</div>
@@ -58,13 +57,15 @@
 		},
 		methods: {
 			handleSearch() {
-				this.$http.get(`/api/music/musicsearch?keyword=${this.keyword}&type=${this.type}&offset=${this.currentPage}`).then(res => {
-					this.total = res.data.data.data.total;
-					this.musicList = res.data.data.data.songs;
-				}).catch(erro => console.log(erro));
+				if (!this.keyword) return this.$message.error('搜索关键词不能为空！');
+				this.$http.get(`/api/music/musicsearch?keyword=${this.keyword}&type=${this.type}&offset=${this.currentPage}`).then(
+					res => {
+						this.total = res.data.data.data.total;
+						this.musicList = res.data.data.data.songs;
+					}).catch(erro => console.log(erro));
 			},
 			handleCurrentChange(val) {
-			     this.handleSearch();
+				this.handleSearch();
 			}
 		}
 	}
