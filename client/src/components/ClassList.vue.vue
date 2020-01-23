@@ -4,6 +4,9 @@
 			<el-table-column type="index" label="序号" align='center' width="70">
 			</el-table-column>
 			<el-table-column prop="createDate" label="添加日期" align='center' width="200">
+				<template slot-scope="scope">
+					<span>{{formatDate(scope.row.createDate)}}</span>
+				</template>
 			</el-table-column>
 			<el-table-column prop="class_type" align='center' label="课程类型">
 			</el-table-column>
@@ -81,6 +84,10 @@
 				}).catch(erro=>{
 					this.$message.error(erro.response.data.msg);
 				});
+			},
+			formatDate(date){
+				let d = new Date(date);
+				return `${d.getFullYear()} / ${d.getMonth()+1} / ${d.getDate()}`;
 			}
 		}
 	}

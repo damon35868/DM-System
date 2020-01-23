@@ -23,5 +23,6 @@ app.use(passport.initialize());
 require('./api/user.js')(app);
 require('./api/class.js')(app);
 require('./api/music.js')(app);
+require('./api/blog.js')(app);
 
 app.listen(8888,()=> console.log('the server is running'));

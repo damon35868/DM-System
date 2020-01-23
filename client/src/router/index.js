@@ -30,6 +30,14 @@ const routes = [
 		{
 			path:'/musicsearch',
 			component: () => import('../components/MusicSearch.vue')
+		},
+		{
+			path:'/addblog',
+			component: () => import('../components/AddBlog.vue')
+		},
+		{
+			path:'/bloglist',
+			component: () => import('../components/BlogList.vue')
 		}
 	]
   },

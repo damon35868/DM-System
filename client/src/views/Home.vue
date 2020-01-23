@@ -24,7 +24,7 @@
 
 		<el-container>
 			<el-aside width="200px">
-				<el-menu style="height:calc(100vh - 60px);" :default-openeds="['1', '2']" :default-active="$route.path" class="el-menu-vertical-demo"
+				<el-menu style="height:calc(100vh - 60px);" :default-active="$route.path" class="el-menu-vertical-demo"
 				 router text-color="#606060">
 					<el-submenu index="1">
 						<template slot="title"><i class="el-icon-setting"></i>信息管理</template>
@@ -39,6 +39,12 @@
 						<template slot="title"><i class="el-icon-headset"></i><span>音乐管理</span></template>
 						<el-menu-item index="/musicrecommend">音乐TOP榜</el-menu-item>
 						<el-menu-item index="/musicsearch">音乐搜索</el-menu-item>
+					</el-submenu>
+					
+					<el-submenu index="3">
+						<template slot="title"><i class="el-icon-notebook-1"></i><span>博文管理</span></template>
+						<el-menu-item index="/addblog">添加博文</el-menu-item>
+						<el-menu-item index="/bloglist">博文列表</el-menu-item>
 					</el-submenu>
 				</el-menu>
 			</el-aside>
