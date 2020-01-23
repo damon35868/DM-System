@@ -39,7 +39,8 @@
 		
 		<el-dialog title="查看博文" :visible.sync="dialogFormVisible2">
 			<div class="px-10">
-				<h4 class="text-xl font-bold text-blue-700 pb-6">{{blogForm.title}}</h4>
+				<h4 class="text-xl font-bold text-blue-700">{{blogForm.title}}</h4>
+				<p class="text-xs pt-1 pb-6 text-gray-500">发表日期：{{formatDate(blogForm.createDate)}} <span class="pl-2">{{formatTime(blogForm.createDate)}}</span> </p>
 				<p class="text-black-800">{{blogForm.textContent}}</p>
 			</div>
 			<div slot="footer" class="dialog-footer">
@@ -58,7 +59,8 @@
 				blogForm: {
 					id: '',
 					title: '',
-					textContent: ''
+					textContent: '',
+					createDate:''
 				},
 				dialogFormVisible: false,
 				dialogFormVisible2: false
@@ -111,6 +113,7 @@
 					this.blogForm.id = res.data.data._id;
 					this.blogForm.title = res.data.data.title;
 					this.blogForm.textContent = res.data.data.textContent;
+					 this.blogForm.createDate = res.data.data.createDate;
 				}).catch(erro=>console.log(erro));
 				this.dialogFormVisible2 = true;
 			}
