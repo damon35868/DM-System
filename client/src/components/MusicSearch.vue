@@ -69,6 +69,7 @@
 				this.handleSearch();
 			},
 			changeVal(val){
+				if(!this.keyword) return;
 				this.handleSearch();
 			}
 		}

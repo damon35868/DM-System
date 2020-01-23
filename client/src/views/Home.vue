@@ -10,7 +10,7 @@
 					<!-- <img :src="user.avatar" class="w-10 h-10 rounded-full inline-block mr-2"> -->
 					<el-dropdown class="text-white" @command="handleClick">
 						<span class="align-middle">
-							<span class="align-middle font-bold userName">{{user.user_name}}</span>
+							<span class="align-middle font-bold">{{user.user_name}}</span>
 							<i class="align-middle el-icon-caret-bottom el-icon--right ml-2" style="font-size:16px;"></i>
 						</span>
 						<el-dropdown-menu slot="dropdown">
@@ -76,7 +76,7 @@
 	.el-aside {
 		color: #333;
 	}
-	.logo,.userName{
+	.logo{
 		font-family: 'Cookie', cursive;
 	}
 </style>

@@ -4,9 +4,9 @@
       ref="dynamicValidateForm"
       style="width:600px; margin:0 auto;"
       :model="formData"
-      label-width="120px"
+      label-width="130px"
     >
-	 <h2 class="text-3xl pb-8 text-center text-blue-500 font-bold">D.M管理系统</h2>
+	 <h2 class="title text-5xl pb-8 text-center text-blue-500 font-bold">D.M System</h2>
 	<el-form-item>
 		<h2 class="text-2xl pb-4 text-blue-500 font-bold">登陆/Login</h2>
 	</el-form-item>
@@ -98,3 +98,8 @@
 		}
 	}
 </script>
+<style>
+	.title{
+		font-family: 'Cookie', cursive;
+	}
+</style>
