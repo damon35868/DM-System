@@ -1,10 +1,10 @@
 <template>
-	<div v-if="blogs !== null" class="p-10">
+	<div v-if="blogs !== null" class="py-10 px-20">
 		<el-card class="box-card mb-6" v-for="(item,key) in blogs" :key="key">
 			<div slot="header" class="clearfix flex justify-between items-center">
 				<div class="flex-1">
 					<span class="text-blue-700">{{item.title}}</span>
-					<span class="text-xs pl-10 text-gray-500">发表日期：{{formatDate(item.createDate)}}</span>
+					<p class="text-xs pt-1 text-gray-500">发表日期：{{formatDate(item.createDate)}} <span class="pl-2">{{formatTime(item.createDate)}}</span> </p>
 				</div>
 				
 				<div class="">
@@ -15,7 +15,7 @@
 			<div class="text item text-black-800 text-hidden3">
 				{{item.textContent}}
 			</div>
-			<p class="text-gray-600 text-sm hover:underline mt-3 cursor-pointer" @click="blogInfo(item._id)">查看全文</p>
+			<p class="text-gray-600 text-xs hover:underline mt-3 cursor-pointer" @click="blogInfo(item._id)">查看全文</p>
 		</el-card>
 
 		<el-dialog title="编辑博文" :visible.sync="dialogFormVisible">
@@ -82,6 +82,10 @@
 			formatDate(date) {
 				let d = new Date(date);
 				return `${d.getFullYear()} 年 ${d.getMonth()+1} 月 ${d.getDate()} 日`;
+			},
+			formatTime(date) {
+				let d = new Date(date);
+				return `${d.getHours()} : ${d.getMinutes()} : ${d.getSeconds()}`;
 			},
 			saveBlog() {
 				this.$http.post(`/api/blog/edit/${this.blogForm.id}`, this.blogForm).then(res => {
