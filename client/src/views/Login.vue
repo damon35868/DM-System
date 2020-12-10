@@ -1,15 +1,22 @@
 <template>
-  <div style="height:100vh;" class="flex items-center justify-between">
+  <div
+    style="height:100vh;"
+    class="flex items-center justify-between"
+  >
     <el-form
       ref="dynamicValidateForm"
       style="width:600px; margin:0 auto;"
       :model="formData"
       label-width="130px"
     >
-	 <h2 class="title text-5xl pb-8 text-center text-blue-500 font-bold">D.M System</h2>
-	<el-form-item>
-		<h2 class="text-2xl pb-4 text-blue-500 font-bold">登陆/Login</h2>
-	</el-form-item>
+      <h2 class="title text-5xl pb-8 text-center text-blue-500 font-bold">
+        D.M System
+      </h2>
+      <el-form-item>
+        <h2 class="text-2xl pb-4 text-blue-500 font-bold">
+          登陆/Login
+        </h2>
+      </el-form-item>
       <el-form-item
         prop="email"
         label="邮箱/Email:"
@@ -25,7 +32,7 @@
         <el-input
           v-model="formData.password"
           type="password"
-		  @keyup.enter="submitForm('dynamicValidateForm')"
+          @keyup.enter="submitForm('dynamicValidateForm')"
         />
       </el-form-item>
       <el-form-item>
@@ -35,7 +42,13 @@
         >
           登陆
         </el-button>
-		<span style="float: right;" class="text-xs">还没有账号？<router-link to="/register" class="text-blue-600">注册</router-link></span>
+        <span
+          style="float: right;"
+          class="text-xs"
+        >还没有账号？<router-link
+          to="/register"
+          class="text-blue-600"
+        >注册</router-link></span>
       </el-form-item>
     </el-form>
   </div>
@@ -98,8 +111,3 @@
 		}
 	}
 </script>
-<style>
-	.title{
-		font-family: 'Cookie', cursive;
-	}
-</style>

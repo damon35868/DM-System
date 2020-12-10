@@ -6,9 +6,7 @@ const passport = require('passport');
  
  
 //database connect
-mongoose.connect('mongodb://localhost:27017/dmdata', {useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false}).then(()=>{
-	console.log('database is connected');
-});
+mongoose.connect('mongodb://localhost:27017/dmdata', {useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false}).then(()=> console.log('database is connected'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -20,9 +18,6 @@ require("./config/passport")(passport);
 app.use(passport.initialize());
 
 //api
-require('./api/user.js')(app);
-require('./api/class.js')(app);
-require('./api/music.js')(app);
-require('./api/blog.js')(app);
+require("./api")(app);
 
 app.listen(8888,()=> console.log('the server is running'));
